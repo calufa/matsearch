@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  main:
+    build: .
+    image: matsearch-api
+    command: |
+      bash -c '
+        source activate deepchem
+        python app.py
+      '
+    volumes:
+      - ./:/app
+      - ../data:/data
+    ports:
+      - 8080:8080
